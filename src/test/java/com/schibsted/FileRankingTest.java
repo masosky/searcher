@@ -1,6 +1,8 @@
-package com.schibsted.ranking;
+package com.schibsted;
 
-import com.schibsted.file.Manager;
+import com.schibsted.FileRanking;
+import com.schibsted.Ranking;
+import com.schibsted.Manager;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeMethod;
@@ -64,6 +66,6 @@ public class FileRankingTest {
 
         ranking.create(lManagers);
 
-        ranking.showResults();
+        ranking.printResults();
     }
 }

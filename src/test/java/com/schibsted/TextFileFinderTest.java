@@ -1,6 +1,8 @@
-package com.schibsted.finder;
+package com.schibsted;
 
+import com.schibsted.FileFinder;
 import com.schibsted.FileUtils;
+import com.schibsted.TextFileFinder;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeMethod;

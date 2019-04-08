@@ -1,9 +1,9 @@
-package com.schibsted.finder;
+package com.schibsted;
 
 import java.io.File;
 import java.util.List;
 
-public interface FileFinder {
+interface FileFinder {
 
     List<File> find(String directory);
 }

@@ -1,6 +1,7 @@
-package com.schibsted.finder;
+package com.schibsted;
 
-import com.schibsted.file.FileFilter;
+import com.schibsted.FileFilter;
+import com.schibsted.FileFinder;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -8,20 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class that finds files with a concrete extension in a directory.
+ * Class responsible to find a concrete extension
  */
-public final class TextFileFinder implements FileFinder {
+final class TextFileFinder implements FileFinder {
 
     private static final String FILE_EXTENSION = ".txt";
     private final FilenameFilter filter;
     private File directory;
 
 
-    public TextFileFinder() {
+    protected TextFileFinder() {
         this.filter = new FileFilter(FILE_EXTENSION);
 
     }
 
+    @Override
     public List<File> find(String directory) {
         int filesRead = 0;
         List<File> result = new ArrayList<>();

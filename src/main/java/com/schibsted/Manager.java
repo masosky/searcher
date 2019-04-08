@@ -1,8 +1,8 @@
-package com.schibsted.file;
+package com.schibsted;
 
 import java.io.IOException;
 
-public interface Manager {
+interface Manager {
 
     void findText() throws IOException;
     int getScore();

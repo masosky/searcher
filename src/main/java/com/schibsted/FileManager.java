@@ -1,4 +1,4 @@
-package com.schibsted.file;
+package com.schibsted;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 /**
  * Class that manages the file information.
  */
-public class FileManager implements Manager {
+class FileManager implements Manager {
 
     private final String fileName;
     private final String absolutePath;
@@ -19,7 +19,7 @@ public class FileManager implements Manager {
     private String[] words;
     private int score = 0;
 
-    public FileManager(File file, String textToFind) {
+    protected FileManager(File file, String textToFind) {
         this.searchingList = new ArrayList<>();
         this.absolutePath = file.getAbsolutePath();
         this.fileName = file.getName();
@@ -27,11 +27,6 @@ public class FileManager implements Manager {
         splitSentence(words.length);
     }
 
-    /**
-     * Finds the desired text in the file.
-     *
-     * @throws IOException
-     */
     public void findText() throws IOException {
         for (String[] arrayText : searchingList) {
             String textToFind = Arrays.stream(arrayText).collect(Collectors.joining(" "));

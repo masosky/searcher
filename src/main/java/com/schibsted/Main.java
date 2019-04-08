@@ -1,15 +1,7 @@
 package com.schibsted;
 
-import com.schibsted.file.FileManager;
-import com.schibsted.file.Manager;
-import com.schibsted.finder.TextFileFinder;
-import com.schibsted.finder.FileFinder;
-import com.schibsted.ranking.FileRanking;
-import com.schibsted.ranking.Ranking;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,6 +13,7 @@ public class Main {
 
         final FileFinder finder = new TextFileFinder();
         final Ranking ranking = new FileRanking();
+        final FileManagerFactory fileManagerFactory = new FileManagerFactory();
 
         if (args.length == 0) {
             throw new IllegalArgumentException("No directory provided");
@@ -35,9 +28,9 @@ public class Main {
                     System.out.print("Search> ");
                     final String line = keyboard.nextLine();
                     if (!line.equals(EXIT)) {
-                        List<Manager> lManagers = createFileManager(files, line);
+                        List<Manager> lManagers = fileManagerFactory.createFileManager(files, line);
                         ranking.create(lManagers);
-                        ranking.showResults();
+                        ranking.printResults();
                     } else {
                         find = false;
                     }
@@ -48,21 +41,4 @@ public class Main {
         }
     }
 
-    /**
-     * Creates the objects to manage the text file search.
-     * @param files
-     * @param textToFind
-     * @return
-     * @throws IOException
-     */
-    private static List<Manager> createFileManager(List<File> files, String textToFind) throws IOException {
-        List<Manager> lManagers = new ArrayList<>();
-        for (File file : files) {
-            Manager manager = new FileManager(file, textToFind);
-            manager.findText();
-            lManagers.add(manager);
-
-        }
-        return lManagers;
-    }
 }

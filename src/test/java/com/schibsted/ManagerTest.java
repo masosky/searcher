@@ -1,6 +1,8 @@
-package com.schibsted.file;
+package com.schibsted;
 
+import com.schibsted.FileManager;
 import com.schibsted.FileUtils;
+import com.schibsted.Manager;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeMethod;

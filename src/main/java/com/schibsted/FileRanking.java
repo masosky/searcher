@@ -1,13 +1,11 @@
-package com.schibsted.ranking;
-
-import com.schibsted.file.Manager;
+package com.schibsted;
 
 import java.util.*;
 
 /**
  * Implementation that manages the ranking.
  */
-public class FileRanking implements Ranking {
+class FileRanking implements Ranking {
 
     private static final Integer MAX_RESULTS = 10;
     private Map<Integer, List<String>> result;
@@ -43,7 +41,7 @@ public class FileRanking implements Ranking {
      * Method that prints the ranking.
      */
     @Override
-    public void showResults() {
+    public void printResults() {
         if (!result.isEmpty()) {
             for (Map.Entry<Integer, List<String>> entry : result.entrySet()) {
                 System.out.println(entry.getValue().toString() + ":" + entry.getKey() + "%");

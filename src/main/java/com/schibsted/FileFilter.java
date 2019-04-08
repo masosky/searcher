@@ -1,13 +1,13 @@
-package com.schibsted.file;
+package com.schibsted;
 
 import java.io.File;
 import java.io.FilenameFilter;
 
-public final class FileFilter implements FilenameFilter {
+final class FileFilter implements FilenameFilter {
 
     private final String extension;
 
-    public FileFilter(String extension){
+    protected FileFilter(String extension){
         this.extension = extension;
     }
 
